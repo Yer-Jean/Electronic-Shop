@@ -11,12 +11,12 @@ def write_to_json_file(output_file, data):
             if os.stat(output_file).st_size == 0:
                 json.dump(data, json_file, indent=4, ensure_ascii=False)
             else:  # Иначе считываем из файла данные
-                with open(output_file) as json_file:
-                    data_list = json.load(json_file)
+                with open(output_file) as file:
+                    data_list = json.load(file)
                 # Добавляем к ним новые
-                data_list.append(data)
+                data_list += data
                 # И записываем всё вместе в файл
-                with open(output_file, "w") as json_file:
-                    json.dump(data_list, json_file, indent=4, ensure_ascii=False)
+                with open(output_file, "w") as file:
+                    json.dump(data_list, file, indent=4, ensure_ascii=False)
     except FileNotFoundError:
         print('\nНе найден файл с данными\n')
