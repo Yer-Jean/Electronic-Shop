@@ -1,0 +1,99 @@
+[
+  {
+    "model": "catalog.category",
+    "pk": 1,
+    "fields": {
+      "name": "iPhone",
+      "description": "Smartphones iPhone"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 2,
+    "fields": {
+      "name": "Mac",
+      "description": "Computers Mac"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 3,
+    "fields": {
+      "name": "iPad",
+      "description": "Tablets iPad"
+    }
+  },
+  {
+    "model": "catalog.category",
+    "pk": 4,
+    "fields": {
+      "name": "Watch",
+      "description": "Smartwatches Watch"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 1,
+    "fields": {
+      "name": "iPhone 15 Pro 128Gb Natural Titanium",
+      "description": "iPhone 15 Pro 128Gb Natural Titanium",
+      "image": "",
+      "category": 1,
+      "price": 999,
+      "created_date": "2023-09-13",
+      "modified_date": "2023-09-13"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 2,
+    "fields": {
+      "name": "iPhone 15 Pro Max 128Gb Blue Titanium",
+      "description": "iPhone 15 Pro Max 128Gb Blue Titanium",
+      "image": "",
+      "category": 1,
+      "price": 1199,
+      "created_date": "2023-09-13",
+      "modified_date": "2023-09-13"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 3,
+    "fields": {
+      "name": "iPhone 15 128Gb Blue",
+      "description": "iPhone 15 128Gb Blue",
+      "image": "",
+      "category": 1,
+      "price": 799,
+      "created_date": "2023-09-13",
+      "modified_date": "2023-09-13"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 4,
+    "fields": {
+      "name": "iPhone 15 Plus 128Gb Pink",
+      "description": "iPhone 15 Plus 128Gb Pink",
+      "image": "",
+      "category": 1,
+      "price": 899,
+      "created_date": "2023-09-13",
+      "modified_date": "2023-09-13"
+    }
+  },
+  {
+    "model": "catalog.product",
+    "pk": 5,
+    "fields": {
+      "name": "MacBook Air 15\"",
+      "description": "MacBook Air 15\" M2 Chip.\r\n8-Core CPU\r\n10-Core GPU\r\n8GB Unified Memory\r\n256GB SSD Storage",
+      "image": "",
+      "category": 2,
+      "price": 1299,
+      "created_date": "2023-09-13",
+      "modified_date": "2023-09-13"
+    }
+  }
+]
