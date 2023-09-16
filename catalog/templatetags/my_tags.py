@@ -4,7 +4,7 @@ register = template.Library()
 
 
 @register.filter()
-def mymedia(val):
+def mediapath(val):
     if val:
         return f'/media/{val}'
-    return '/static/images/dog-silhouette.jpg'
+    return '/static/images/no_image_available.jpg'

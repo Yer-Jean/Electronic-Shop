@@ -8,14 +8,15 @@ def index(request):
     context = {
         'object_list': Product.objects.all(),  # вывод всех объектов
         'title': 'Easy shopping with Dream',
-        'sub_title': 'Explore our gadgets catalog'
+        'sub_title': 'Explore our gadgets catalog',
     }
     return render(request, 'catalog/index.html', context)
+
 
 def product(request, pk):
     product_item = Product.objects.get(pk=pk)
     context = {
-        'object_list': Product.objects.filter(category_id=pk),
+        'object': product_item,
         'title': f'{product_item.name}',
         'sub_title': ''
     }

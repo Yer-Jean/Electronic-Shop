@@ -1,1 +1,18 @@
 {% extends 'catalog/base.html' %}
+{% load my_tags %}
+{% block content %}
+<div class="container py-4">
+
+    <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+        <div class="container-fluid py-5">
+            <img src="{{ object.image|mediapath }}" class="p-4 img-fluid"
+                 width="400px" height="auto" alt="Responsive image">
+            <h2 class="display-6">${{ object.price }}</h2>
+            <p class="col-md-8 fs-4">{{ object.description }}</p>
+            <button class="btn btn-primary btn-lg" type="button">Buy</button>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

@@ -33,67 +33,67 @@
   },
   {
     "model": "catalog.product",
-    "pk": 1,
+    "pk": 16,
     "fields": {
       "name": "iPhone 15 Pro 128Gb Natural Titanium",
-      "description": "iPhone 15 Pro 128Gb Natural Titanium",
-      "image": "",
+      "description": "Specifications\r\n\r\nHardware\r\nLike the iPhone 15 and 15 Plus, the 15 Pro and Pro Max replace the proprietary Lightning connector with USB-C to comply with the European Union mandating the use of this connector in smartphones with Directive (EU) 2022/2380 in 2022. Apple had already introduced USB-C to its handheld devices with the third generation iPad Pro, released in 2018.\r\n\r\nDesign\r\nThe enclosure of the iPhone 15 Pro and iPhone 15 Pro Max is made of titanium. They will be available in the colors natural titanium, blue titanium, white titanium, and black titanium.\r\n\r\nCharging and transfer speeds\r\nThe iPhone 15 Pro and iPhone 15 Pro Max will use USB-C with USB 3 transfer speeds (est. up to 10Gbps / 1.25GBps), an improvement over the iPhone 14 Pro and the iPhone 15/15 Plus base models which only have USB 2.0 transfer speeds (est. up to 480 Mbps / 60MBps).\r\n\r\nVideo output\r\nAll iPhone 15 models have support for DisplayPort Alternate Mode over USB-C video output with HDR up to 4K resolution.\r\n\r\nPrevious iPhone models (from iPhone 5 until iPhone 14 Pro) had a maximum supported resolution of 1600 x 900 (slightly less than 1080p) with the Lightning Digital AV Adapter due to technical constraints of the Lightning connector.\r\n\r\nAction button\r\nThe iPhone 15 Pro and iPhone 15 Pro Max feature an Action button, replacing the mute switch. The function of the Action button can be configured by the user. By default, the Action button toggles silent mode. Other options include opening camera, recording a voice memo, or toggling a focus mode.\r\n\r\nSoftware\r\nThe iPhone 15 Pro and iPhone 15 Pro Max will launch with iOS 17.",
+      "image": "products/iPhone15ProNaturalTitanium.jpeg",
       "category": 1,
       "price": 999,
-      "created_date": "2023-09-13",
-      "modified_date": "2023-09-13"
+      "created_date": "2023-09-14T08:09:04.126Z",
+      "modified_date": "2023-09-16T18:17:05.196Z"
     }
   },
   {
     "model": "catalog.product",
-    "pk": 2,
+    "pk": 17,
     "fields": {
       "name": "iPhone 15 Pro Max 128Gb Blue Titanium",
-      "description": "iPhone 15 Pro Max 128Gb Blue Titanium",
-      "image": "",
+      "description": "Specifications\r\n\r\nHardware\r\nLike the iPhone 15 and 15 Plus, the 15 Pro and Pro Max replace the proprietary Lightning connector with USB-C to comply with the European Union mandating the use of this connector in smartphones with Directive (EU) 2022/2380 in 2022. Apple had already introduced USB-C to its handheld devices with the third generation iPad Pro, released in 2018.\r\n\r\nDesign\r\nThe enclosure of the iPhone 15 Pro and iPhone 15 Pro Max is made of titanium. They will be available in the colors natural titanium, blue titanium, white titanium, and black titanium.\r\n\r\nCharging and transfer speeds\r\nThe iPhone 15 Pro and iPhone 15 Pro Max will use USB-C with USB 3 transfer speeds (est. up to 10Gbps / 1.25GBps), an improvement over the iPhone 14 Pro and the iPhone 15/15 Plus base models which only have USB 2.0 transfer speeds (est. up to 480 Mbps / 60MBps).\r\n\r\nVideo output\r\nAll iPhone 15 models have support for DisplayPort Alternate Mode over USB-C video output with HDR up to 4K resolution.\r\n\r\nPrevious iPhone models (from iPhone 5 until iPhone 14 Pro) had a maximum supported resolution of 1600 x 900 (slightly less than 1080p) with the Lightning Digital AV Adapter due to technical constraints of the Lightning connector.\r\n\r\nAction button\r\nThe iPhone 15 Pro and iPhone 15 Pro Max feature an Action button, replacing the mute switch. The function of the Action button can be configured by the user. By default, the Action button toggles silent mode. Other options include opening camera, recording a voice memo, or toggling a focus mode.\r\n\r\nSoftware\r\nThe iPhone 15 Pro and iPhone 15 Pro Max will launch with iOS 17.",
+      "image": "products/iPhone15ProMaxBlueTitanium.jpeg",
       "category": 1,
       "price": 1199,
-      "created_date": "2023-09-13",
-      "modified_date": "2023-09-13"
+      "created_date": "2023-09-14T08:09:04.127Z",
+      "modified_date": "2023-09-16T18:17:11.437Z"
     }
   },
   {
     "model": "catalog.product",
-    "pk": 3,
+    "pk": 18,
     "fields": {
-      "name": "iPhone 15 128Gb Blue",
-      "description": "iPhone 15 128Gb Blue",
-      "image": "",
+      "name": "iPhone 15 128Gb Yellow",
+      "description": "Specifications\r\n\r\nDisplay\r\nThe iPhone 15 features a 6.1-inch (155 mm) display with Super Retina XDR OLED technology at a resolution of 2556×1179 pixels and a pixel density of about 460 PPI. The iPhone 15 Plus features a 6.7-inch (170 mm) display with the same technology at a resolution of 2796×1290 pixels and a pixel density of about 460 PPI. Both models have the Super Retina XDR OLED display with improved typical brightness up to 1,000 nits, peak brightness (HDR) up to 1,600 nits, and peak brightness (outdoor) up to 2,000 nits. The Dynamic Island feature is now standard on iPhone 15, replacing the display notch.\r\n\r\nDesign\r\nThe iPhone 15 and iPhone 15 Plus will be available in five new colors: blue, pink, yellow, green, and black.\r\n\r\nCharging and transfer speeds\r\nThe iPhone 15 and iPhone 15 Plus will use USB-C with USB 2.0 transfer speeds (est. up to 480 Mb/s or 60MB/s),[10] while the iPhone 15 Pro and iPhone 15 Pro Max have faster USB 3.2 Gen 2 transfer speeds (est. up to 10Gb/s or 1.25GB/s).\r\n\r\nVideo output\r\nAll iPhone 15 models have support for DisplayPort Alternate Mode over USB-C video output with HDR up to 4K resolution.\r\n\r\nPrevious iPhone models (from iPhone 5 until iPhone 14) had a maximum supported resolution of 1600 x 900 (slightly less than 1080p) with the Lightning Digital AV Adapter due to technical constraints of the Lightning connector.\r\n\r\nBattery\r\nThe iPhone 15 Plus offers users up to 26 hours of video playback and up to 100 hours of audio playback, and the iPhone 15 offers slightly less, with up to 20 hours of video playback and up to 80 hours of audio playback.\r\n\r\nSoftware\r\nThe iPhone 15 line will launch with iOS 17. All iPhone 15 models will feature Dynamic Island, a feature introduced with the iPhone 14 Pro line.",
+      "image": "products/iPhone15Yellow.jpg",
       "category": 1,
       "price": 799,
-      "created_date": "2023-09-13",
-      "modified_date": "2023-09-13"
+      "created_date": "2023-09-14T08:09:04.127Z",
+      "modified_date": "2023-09-16T14:51:34.136Z"
     }
   },
   {
     "model": "catalog.product",
-    "pk": 4,
+    "pk": 19,
     "fields": {
       "name": "iPhone 15 Plus 128Gb Pink",
-      "description": "iPhone 15 Plus 128Gb Pink",
-      "image": "",
+      "description": "Specifications\r\n\r\nDisplay\r\nThe iPhone 15 features a 6.1-inch (155 mm) display with Super Retina XDR OLED technology at a resolution of 2556×1179 pixels and a pixel density of about 460 PPI. The iPhone 15 Plus features a 6.7-inch (170 mm) display with the same technology at a resolution of 2796×1290 pixels and a pixel density of about 460 PPI. Both models have the Super Retina XDR OLED display with improved typical brightness up to 1,000 nits, peak brightness (HDR) up to 1,600 nits, and peak brightness (outdoor) up to 2,000 nits. The Dynamic Island feature is now standard on iPhone 15, replacing the display notch.\r\n\r\nDesign\r\nThe iPhone 15 and iPhone 15 Plus will be available in five new colors: blue, pink, yellow, green, and black.\r\n\r\nCharging and transfer speeds\r\nThe iPhone 15 and iPhone 15 Plus will use USB-C with USB 2.0 transfer speeds (est. up to 480 Mb/s or 60MB/s),[10] while the iPhone 15 Pro and iPhone 15 Pro Max have faster USB 3.2 Gen 2 transfer speeds (est. up to 10Gb/s or 1.25GB/s).\r\n\r\nVideo output\r\nAll iPhone 15 models have support for DisplayPort Alternate Mode over USB-C video output with HDR up to 4K resolution.\r\n\r\nPrevious iPhone models (from iPhone 5 until iPhone 14) had a maximum supported resolution of 1600 x 900 (slightly less than 1080p) with the Lightning Digital AV Adapter due to technical constraints of the Lightning connector.\r\n\r\nBattery\r\nThe iPhone 15 Plus offers users up to 26 hours of video playback and up to 100 hours of audio playback, and the iPhone 15 offers slightly less, with up to 20 hours of video playback and up to 80 hours of audio playback.\r\n\r\nSoftware\r\nThe iPhone 15 line will launch with iOS 17. All iPhone 15 models will feature Dynamic Island, a feature introduced with the iPhone 14 Pro line.",
+      "image": "products/iPhone15PlusPink.jpg",
       "category": 1,
       "price": 899,
-      "created_date": "2023-09-13",
-      "modified_date": "2023-09-13"
+      "created_date": "2023-09-14T08:09:04.127Z",
+      "modified_date": "2023-09-16T18:17:22.628Z"
     }
   },
   {
     "model": "catalog.product",
-    "pk": 5,
+    "pk": 20,
     "fields": {
-      "name": "MacBook Air 15\"",
-      "description": "MacBook Air 15\" M2 Chip.\r\n8-Core CPU\r\n10-Core GPU\r\n8GB Unified Memory\r\n256GB SSD Storage",
+      "name": "MacBook Air 15\" M2 Chip",
+      "description": "8-Core CPU\r\n10-Core GPU\r\n8GB Unified Memory\r\n256GB SSD Storage",
       "image": "",
       "category": 2,
       "price": 1299,
-      "created_date": "2023-09-13",
-      "modified_date": "2023-09-13"
+      "created_date": "2023-09-14T08:09:04.127Z",
+      "modified_date": "2023-09-16T07:16:31.477Z"
     }
   }
 ]
