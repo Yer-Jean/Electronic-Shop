@@ -1,20 +1,29 @@
 from django.shortcuts import render
 
+from catalog.models import Product
 from utils.json_saver import write_to_json_file
 
 
 def index(request):
     context = {
-        # 'object_list': Category.objects.all(),  # вывод всех объектов
+        'object_list': Product.objects.all(),  # вывод всех объектов
         'title': 'Easy shopping with Dream',
         'sub_title': 'Explore our gadgets catalog'
     }
     return render(request, 'catalog/index.html', context)
 
+def product(request, pk):
+    product_item = Product.objects.get(pk=pk)
+    context = {
+        'object_list': Product.objects.filter(category_id=pk),
+        'title': f'{product_item.name}',
+        'sub_title': ''
+    }
+    return render(request, 'catalog/product.html', context)
+
 
 def contacts(request):
     context = {
-        # 'object_list': Category.objects.all(),  # вывод всех объектов
         'title': 'Our Contacts',
         'sub_title': ''
     }
