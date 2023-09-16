@@ -164,3 +164,9 @@ cython_debug/
 .idea/
 messages.json
 /catalog/static/images/python.jpeg
+/catalog/templates/catalog/test.html
+/catalog/templates/catalog/index_old.html
+
+/catalog/templates/catalog/contacts_old.html
+
+/catalog/templates/catalog/base_old.html
