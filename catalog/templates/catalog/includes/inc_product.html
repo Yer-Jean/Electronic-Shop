@@ -1,6 +1,6 @@
 {% load my_tags %}
 <div class="col">
-    <div class="card shadow-sm">
+    <div class="card shadow-sm" >
         <p class="text-center">
             <img src="{{ object.image|mediapath }}" class="p-3 img-fluid" width="225px" height="auto" alt="Responsive image">
         </p>
@@ -16,7 +16,8 @@
                        class="btn btn-md btn-outline-secondary">View</a>
                     <button type="button" class="btn btn-md btn-primary">Buy</button>
                 </div>
-<!--                <small class="text-body-secondary">{{ object.category_id }}</small>-->
+                <small class="text-body-secondary">{{ object.category.name }}</small>
+
             </div>
         </div>
     </div>
