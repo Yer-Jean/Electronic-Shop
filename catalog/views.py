@@ -1,26 +1,61 @@
 from django.shortcuts import render
+from django.views.generic import ListView, DetailView, TemplateView
 
-from catalog.models import Product
+from catalog.models import Product, Category
 from utils.json_saver import write_to_json_file
 
 
-def index(request):
-    context = {
-        'object_list': Product.objects.all(),  # вывод всех объектов
+class IndexView(TemplateView):
+    template_name = 'catalog/index.html'
+    extra_context = {
         'title': 'Easy shopping with Dream',
         'sub_title': 'Explore our gadgets catalog',
     }
-    return render(request, 'catalog/index.html', context)
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['object_list'] = Product.objects.all()[:6]
+        return context_data
 
 
-def product(request, pk):
-    product_item = Product.objects.get(pk=pk)
-    context = {
-        'object': product_item,
-        'title': f'{product_item.name}',
+class CategoryListView(ListView):
+    model = Category
+    extra_context = {
+        'title': 'Dream shop - Categories',
         'sub_title': ''
     }
-    return render(request, 'catalog/product.html', context)
+
+
+class ProductListView(ListView):
+    model = Product
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(category_id=self.kwargs.get('pk'))
+        return queryset
+
+    # Переопределяем экстра-контекст, так как у нас подставляются динамические данные
+    def get_context_data(self, *args, **kwargs):
+        context_data = super().get_context_data(*args, **kwargs)
+
+        category_item = Category.objects.get(pk=self.kwargs.get('pk'))
+        context_data['category_pk'] = category_item.pk
+        context_data['title'] = f'Category {category_item.name} products'
+
+        return context_data
+
+
+class ProductDetailView(DetailView):
+    model = Product
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+
+        product_item = Product.objects.get(pk=self.kwargs.get('pk'))
+        context_data['product_pk'] = product_item.pk
+        context_data['title'] = f'{product_item.name}'
+
+        return context_data
 
 
 def contacts(request):

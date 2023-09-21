@@ -5,11 +5,12 @@
             <img src="{{ object.image|mediapath }}" class="p-3 img-fluid" width="225px" height="auto" alt="Responsive image">
         </p>
         <div class="card-header py-3">
-            <h5 class="my-0 fw-normal">{{ object.name }}</h5>
+            <h5 class="my-0 fw-normal text-truncate">{{ object.name }}</h5>
         </div>
         <div class="card-body">
             <h2 class="card-title pricing-card-title">${{ object.price }}</h2>
-            <p class="card-text">{{ object.description|slice:":100" }}</p>
+            <p class="card-text">{{ object.description|truncatechars:100 }}</p>
+<!--            <p class="card-text">{{ object.description|slice:":100" }}</p>-->
             <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
                     <a href="{% url 'catalog:product' object.pk %}" type="button"

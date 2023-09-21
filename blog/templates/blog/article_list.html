@@ -1,0 +1,28 @@
+{% extends 'catalog/base.html' %}
+
+{% block content %}
+<div class="col-12 mb-5">
+    <a class="btn btn-secondary" href="#">Add article</a>
+</div>
+
+{% for object in object_list %}
+<div class="col-md-12">
+    <div class="card mb-4 rounded-3 shadow-sm ">
+        <div class="card-header py-3">{{ object.name }}</div>
+
+        <div class="card-body">
+            <p class="card-text">
+                object.contents
+            </p>
+        </div>
+        <div class="card-footer">
+            <div class="btn-group">
+                <a href="#" class="btn btn-outline-secondary">View</a>
+                <a href="#" class="btn btn-outline-secondary">Edit</a>
+                <a href="#" class="btn btn-outline-danger">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}
