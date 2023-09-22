@@ -13,6 +13,12 @@ class ArticleListView(ListView):
         'sub_title': ''
     }
 
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        queryset = queryset.filter(is_published=True)
+        # queryset = queryset.order_by('-created_at')
+        return queryset
+
 
 class ArticleDetailView(DetailView):
     model = Article
@@ -36,11 +42,13 @@ class ArticleDetailView(DetailView):
 class ArticleCreateView(CreateView):
     model = Article
     fields = ('title', 'content', 'image',)
-    success_url = reverse_lazy('blog:articles')
     extra_context = {
         'title': 'Dream shop - Blog',
         'sub_title': 'Add article'
     }
+
+    def get_success_url(self):
+        return reverse('blog:article', args=[self.object.pk])
 
     def form_valid(self, form):
         if form.is_valid():
@@ -55,8 +63,10 @@ class ArticleCreateView(CreateView):
 class ArticleUpdateView(UpdateView):
     model = Article
     fields = ('title', 'content', 'image', 'is_published')
-    success_url = reverse_lazy('blog:articles')
-    # Переопределяем страницу в случае успешного обновления
+    extra_context = {
+        'title': 'Dream shop - Blog',
+        'sub_title': 'Edit article'
+    }
 
     def get_success_url(self):
         return reverse('blog:article', args=[self.kwargs.get('pk')])
