@@ -1,25 +1,38 @@
 {% extends 'catalog/base.html' %}
-
+{% load my_tags %}
 {% block content %}
 <div class="col-12 mb-5">
-    <a class="btn btn-secondary" href="#">Add article</a>
+    <a class="btn btn-secondary" href="{% url 'blog:article_create' %}">Add article</a>
 </div>
 
 {% for object in object_list %}
-<div class="col-md-12">
-    <div class="card mb-4 rounded-3 shadow-sm ">
-        <div class="card-header py-3">{{ object.name }}</div>
 
-        <div class="card-body">
-            <p class="card-text">
-                object.contents
-            </p>
+<div class="card mb-3" style="max-height: 600px;">
+    <div class="row g-0">
+        <div class="card-header">
+            <p><h4 class="card-title">{{ object.title }}</h4></p>
+        </div>
+
+        <div class="col-md-4">
+            <img src="{{ object.image|mediapath }}" class="img-fluid rounded-start" alt="Article image">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <small class="text-body-secondary">
+                    <p>{{ object.created_at }}</p>
+                </small>
+                <p class="card-text">{{ object.content|truncatechars:200 }}</p>
+
+            </div>
         </div>
         <div class="card-footer">
-            <div class="btn-group">
-                <a href="#" class="btn btn-outline-secondary">View</a>
-                <a href="#" class="btn btn-outline-secondary">Edit</a>
-                <a href="#" class="btn btn-outline-danger">Delete</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    <a class="btn btn-outline-danger" href="{% url 'blog:article_delete' object.pk %}">Delete</a>
+                </div>
+                <small class="text-body-secondary">{{ object.views_count }} views</small>
             </div>
         </div>
     </div>
