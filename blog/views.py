@@ -4,6 +4,7 @@ from django.views.generic import ListView, DetailView, CreateView, DeleteView, U
 from pytils.translit import slugify
 
 from blog.models import Article
+from blog.services import send_greeting_email
 
 
 class ArticleListView(ListView):
@@ -27,6 +28,12 @@ class ArticleDetailView(DetailView):
         self.object = super().get_object(queryset)
         self.object.views_count += 1  # Увеличиваем счетчик просмотров
         self.object.save()
+
+        # Если количество просмотров статьи стало 100, то отправляем
+        # поздравительное письмо
+        if self.object.views_count == 100:
+            send_greeting_email(self.object)
+
         return self.object
 
     def get_context_data(self, **kwargs):
@@ -76,11 +83,14 @@ class ArticleUpdateView(UpdateView):
         context_data['blog'] = get_object_or_404(Article, pk=self.kwargs.get('pk'))
         return context_data
 
-    # def form_valid(self, form):
-    #     obj = form.save()
-    #     # send_order_email(obj)
-    #     # send_order_email(self.kwargs.get('pk'))
-    #     return super().form_valid(form)
+    def form_valid(self, form):
+        if form.is_valid():
+            new_article = form.save()
+            # slugify импортируем из pytils - поддержка русского языка - нужно установить
+            new_article.slug = slugify(new_article.title)
+            new_article.save()
+
+        return super().form_valid(form)
 
 
 class ArticleDeleteView(DeleteView):
