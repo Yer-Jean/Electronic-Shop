@@ -37,13 +37,9 @@ class ArticleDetailView(DetailView):
         return self.object
 
     def get_context_data(self, **kwargs):
-        context_data = super().get_context_data(**kwargs)
-
-        article_item = Article.objects.get(pk=self.kwargs.get('pk'))
-        context_data['article_pk'] = article_item.pk
-        context_data['title'] = f'{article_item.title}'
-
-        return context_data
+        context = super().get_context_data(**kwargs)
+        context['title'] = self.object.title
+        return context
 
 
 class ArticleCreateView(CreateView):
