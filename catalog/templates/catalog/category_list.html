@@ -1,11 +1,13 @@
 {% extends 'catalog/base.html' %}
 
 {% block content %}
+{% include 'catalog/includes/inc_add_product.html' %}
+
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     {% for object in object_list %}
 
     <div class="col">
-        <div class="card shadow-sm">
+        <div class="card h-100 shadow-sm">
             <p class="text-center">
                 <img src="/static/images/{{ object.name }}.jpeg" class="p-3 img-fluid" width="225px" height="auto"
                      alt="Responsive image">

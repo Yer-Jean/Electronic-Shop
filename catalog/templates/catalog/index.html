@@ -1,6 +1,7 @@
 {% extends 'catalog/base.html' %}
 
 {% block content %}
+{% include 'catalog/includes/inc_add_product.html' %}
 
 <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
     {% for object in object_list %}

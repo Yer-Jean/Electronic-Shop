@@ -1,12 +1,15 @@
 from django.shortcuts import render
-from django.views.generic import ListView, DetailView, TemplateView
+from django.urls import reverse, reverse_lazy
+from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
+from catalog.forms import ProductForm
 from catalog.models import Product, Category
 from utils.json_saver import write_to_json_file
 
 
 class IndexView(TemplateView):
-    template_name = 'catalog/index.html'
+    # template_name = 'catalog/index.html'
+    template_name = 'catalog/product_list.html'
     extra_context = {
         'title': 'Easy shopping with Dream',
         'sub_title': 'Explore our gadgets catalog',
@@ -56,6 +59,26 @@ class ProductDetailView(DetailView):
         context_data['title'] = f'{product_item.name}'
 
         return context_data
+
+
+class ProductCreateView(CreateView):
+    model = Product
+    form_class = ProductForm
+
+    def get_success_url(self):
+        return reverse('catalog:product', args=[self.object.pk])
+
+
+class ProductUpdateView(UpdateView):
+    model = Product
+    form_class = ProductForm
+
+    def get_success_url(self):
+        return reverse('catalog:product', args=[self.object.pk])
+
+class ProductDeleteView(DeleteView):
+    model = Product
+    success_url = reverse_lazy('catalog:index')
 
 
 def contacts(request):

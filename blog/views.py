@@ -51,7 +51,7 @@ class ArticleCreateView(CreateView):
     }
 
     def get_success_url(self):
-        return reverse('blog:article', args=[self.object.pk])
+        return reverse('blog:article', args=[self.object.slug])
 
     def form_valid(self, form):
         if form.is_valid():
