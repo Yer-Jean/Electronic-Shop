@@ -139,4 +139,6 @@ EMAIL_HOST = 'smtp.yandex.ru'
 EMAIL_PORT = 465
 EMAIL_HOST_USER = 'noreply@oscarbot.ru'
 EMAIL_HOST_PASSWORD = 'AsTSNVv7pun9'
-EMAIL_USE_SSL=True
+EMAIL_USE_SSL = True
+
+WORDS_BLACK_LIST = {'казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар'}

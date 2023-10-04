@@ -64,6 +64,10 @@ class ProductDetailView(DetailView):
 class ProductCreateView(CreateView):
     model = Product
     form_class = ProductForm
+    extra_context = {
+        'title': 'Add product',
+        'sub_title': ''
+    }
 
     def get_success_url(self):
         return reverse('catalog:product', args=[self.object.pk])
@@ -75,6 +79,16 @@ class ProductUpdateView(UpdateView):
 
     def get_success_url(self):
         return reverse('catalog:product', args=[self.object.pk])
+
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+
+        product_item = Product.objects.get(pk=self.kwargs.get('pk'))
+        context_data['product_pk'] = product_item.pk
+        context_data['title'] = f'Edit - {product_item.name}'
+
+        return context_data
+
 
 class ProductDeleteView(DeleteView):
     model = Product
