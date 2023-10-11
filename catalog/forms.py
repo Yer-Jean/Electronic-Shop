@@ -22,5 +22,5 @@ class ProductForm(forms.ModelForm):
             cleaned_field_data = cleaned_data.get(field)
             common_words: set = text_to_set_without_punctuation(cleaned_field_data) & WORDS_BLACK_LIST
             if len(common_words) > 0:
-                raise forms.ValidationError(f'Использованы некорректные слова: {", ".join(common_words)}')
+                raise forms.ValidationError(f'Incorrect words used: {", ".join(common_words)}')
         return cleaned_data

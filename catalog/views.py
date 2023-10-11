@@ -3,7 +3,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
 
 from catalog.forms import ProductForm
-from catalog.models import Product, Category
+from catalog.models import Product, Category, Version
 from utils.json_saver import write_to_json_file
 
 
@@ -40,11 +40,9 @@ class ProductListView(ListView):
     # Переопределяем экстра-контекст, так как у нас подставляются динамические данные
     def get_context_data(self, *args, **kwargs):
         context_data = super().get_context_data(*args, **kwargs)
-
         category_item = Category.objects.get(pk=self.kwargs.get('pk'))
         context_data['category_pk'] = category_item.pk
-        context_data['title'] = f'Category {category_item.name} products'
-
+        context_data['title'] = f'Category {category_item.name}'
         return context_data
 
 
@@ -55,7 +53,12 @@ class ProductDetailView(DetailView):
         context_data = super().get_context_data(**kwargs)
 
         product_item = Product.objects.get(pk=self.kwargs.get('pk'))
+        version_item = Version.objects.filter(product=self.kwargs.get('pk'))
+        # Можно вернуть только последнюю версию
+        # if version_item:
+        #     version_item = version_item.last()
         context_data['product_pk'] = product_item.pk
+        context_data['version_item'] = version_item
         context_data['title'] = f'{product_item.name}'
 
         return context_data

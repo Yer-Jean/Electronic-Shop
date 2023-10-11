@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
-NULLABLE = {'blank': True, 'null': True}
+from catalog.models import NULLABLE
 
 
 class Article(models.Model):

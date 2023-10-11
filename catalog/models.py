@@ -1,5 +1,3 @@
-from datetime import date
-
 from django.db import models
 
 NULLABLE = {'blank': True, 'null': True}
@@ -29,9 +27,40 @@ class Product(models.Model):
     modified_date = models.DateTimeField(auto_now=True, verbose_name='Дата изменения')
 
     def __str__(self):
-        return f'{self.name}/{self.category} {self.price}'
+        return f'{self.name}/{self.category} - {self.price}'
+
+    @property
+    def active_version(self):
+        versions = self.version_set.select_related()
+        for version in versions:
+            if version.is_active:
+                return version
+        return None
+
+    @property
+    def last_version(self):
+        version = self.version_set.select_related()
+        if version:
+            return version.last()
+        else:
+            return None
 
     class Meta:
         verbose_name = 'продукт'
         verbose_name_plural = 'продукты'
+        ordering = ('name',)
+
+
+class Version(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, verbose_name='Продукт')
+    name = models.CharField(max_length=150, verbose_name='Наименование')
+    num = models.DecimalField(max_digits=5, decimal_places=2, verbose_name='Номер')
+    is_active = models.BooleanField(default=True, verbose_name='Версия активна')
+
+    def __str__(self):
+        return f'{self.product} version {self.name} {self.num}'
+
+    class Meta:
+        verbose_name = 'версия'
+        verbose_name_plural = 'версии'
         ordering = ('name',)
