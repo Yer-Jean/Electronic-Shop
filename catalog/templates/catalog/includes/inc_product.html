@@ -1,24 +1,35 @@
 {% load my_tags %}
 <div class="col">
-    <div class="card shadow-sm" >
+    <div class="card h-100 shadow-sm">
         <p class="text-center">
-            <img src="{{ object.image|mediapath }}" class="p-3 img-fluid" width="225px" height="auto" alt="Responsive image">
+            <img src="{{ object.image|mediapath }}" class="p-3 img-fluid" width="225px" height="auto"
+                 alt="Responsive image">
         </p>
         <div class="card-header py-3">
             <h5 class="my-0 fw-normal text-truncate">{{ object.name }}</h5>
         </div>
         <div class="card-body">
-            <h2 class="card-title pricing-card-title">${{ object.price }}</h2>
             <p class="card-text">{{ object.description|truncatechars:100 }}</p>
-<!--            <p class="card-text">{{ object.description|slice:":100" }}</p>-->
+            <!--            <p class="card-text">{{ object.description|slice:":100" }}</p>-->
+        </div>
+        <div class="card-footer">
             <div class="d-flex justify-content-between align-items-center">
-                <div class="btn-group">
-                    <a href="{% url 'catalog:product' object.pk %}" type="button"
-                       class="btn btn-md btn-outline-secondary">View</a>
-                    <button type="button" class="btn btn-md btn-primary">Buy</button>
+                <div class="btn-group btn-group-sm">
+                    <a class="btn btn-outline-secondary"
+                       href="{% url 'catalog:product' object.pk %}">View</a>
+                    <a class="btn btn-outline-secondary"
+                       href="{% url 'catalog:product_update' object.pk %}">Edit</a>
+                    <a class="btn btn-outline-danger"
+                       href="{% url 'catalog:product_delete' object.pk %}">Delete</a>
                 </div>
-                <small class="text-body-secondary">{{ object.category.name }}</small>
-
+<!--                <small class="text-body-secondary">{{ object.category.name }}</small>-->
+<!--                {% if object.last_version.num %}-->
+<!--                {# floatformat:"2u" вводим, чтобы сбросить локаль проекта и выводить номер версии через точку #}-->
+<!--                    <small class="text-body-secondary">Version {{ object.last_version.num|floatformat:"2u" }}</small>-->
+<!--                {% endif %}-->
+                {% if object.active_version.num %}
+                    <small class="text-body-secondary">Version {{ object.active_version.num|floatformat:"2u" }}</small>
+                {% endif %}
             </div>
         </div>
     </div>

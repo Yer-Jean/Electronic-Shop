@@ -1,7 +1,6 @@
 from django.db import models
 from django.urls import reverse
-
-NULLABLE = {'blank': True, 'null': True}
+from catalog.models import NULLABLE
 
 
 class Article(models.Model):
@@ -16,8 +15,8 @@ class Article(models.Model):
     def __str__(self):
         return f'{self.title} {self.views_count}'
 
-    # def get_absolute_url(self):
-    #     return reverse('article', kwargs={'slug': self.slug})
+    def get_absolute_url(self):
+        return reverse('blog:article', kwargs={'slug': self.slug})
 
     class Meta:
         verbose_name = 'статья'
