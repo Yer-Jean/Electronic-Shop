@@ -40,6 +40,7 @@ INSTALLED_APPS = [
 
     'catalog.apps.CatalogConfig',
     'blog.apps.BlogConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +143,5 @@ EMAIL_HOST_PASSWORD = 'AsTSNVv7pun9'
 EMAIL_USE_SSL = True
 
 WORDS_BLACK_LIST = {'казино', 'криптовалюта', 'крипта', 'биржа', 'дешево', 'бесплатно', 'обман', 'полиция', 'радар'}
+
+AUTH_USER_MODEL = 'users.User'
