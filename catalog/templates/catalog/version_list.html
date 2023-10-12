@@ -1,0 +1,52 @@
+{% extends 'catalog/base.html' %}
+{% block content %}
+
+<div class="row">
+    <div class="col-2"></div>
+    <div class="col-8">
+        <div class="btn-toolbar mb-2 mb-md-3">
+            <a type="button" class="btn btn-sm btn-secondary"
+               href="{% url 'catalog:version_create'%}">Add new</a>
+        </div>
+
+        <div class="table-responsive small">
+            <table class="table table-striped table-hover">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Number</th>
+                    <th>Is active</th>
+                    <th></th>
+                </tr>
+                </thead>
+
+                {% for object in object_list %}
+                <tr>
+                    <td>{{ object.name }}</td>
+                    <td>{{ object.num|floatformat:"2u" }}</td>
+                    <td>
+                        {% if object.is_active %}
+                        <span class="badge rounded-pill text-bg-secondary">✓</span>
+                        {% endif %}
+                    </td>
+                    <td>
+                        <div class="d-grid gap-3 d-md-flex justify-content-md-end">
+                            <a type="button" class="btn" href="{% url 'catalog:version_update' object.pk %}"
+                               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Edit
+                            </a>
+                            <a type="button" class="btn" href="{% url 'catalog:version_delete' object.pk %}"
+                               style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;">
+                                Delete
+                            </a>
+
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}

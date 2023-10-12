@@ -5,9 +5,9 @@
             <div class="card">
                 <div class="card-header">
                     {% if object %}
-                        Edit product
+                        Edit version
                     {% else %}
-                        Add product
+                        Add version
                     {% endif %}
                 </div>
                 <div class="card-body">
@@ -21,22 +21,6 @@
                         {% endif %}
                     </button>
                     <a class="btn btn-outline-warning" onclick="history.back();">Cancel</a>
-                </div>
-            </div>
-        </div>
-                <div class="col-6">
-            <div class="card">
-                <div class="card-header">
-                    Versions history
-                </div>
-                <div class="card-body">
-                    {{ formset.management_form }}
-                    {% for form in formset.forms %}
-                        {{ form.as_p }}
-                        {% if not forloop.last %}
-                            <hr>
-                        {% endif %}
-                    {% endfor %}
                 </div>
             </div>
         </div>

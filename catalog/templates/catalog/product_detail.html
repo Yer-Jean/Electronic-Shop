@@ -13,24 +13,26 @@
             <div class="d-flex justify-content-between align-items-top">
                 <div class="col-6">
                     <div class="btn-group mb-3">
-    <!--                    <a class="btn btn-outline-secondary" onclick="history.back();">Back</a>-->
-                        <a class="btn btn-outline-secondary" href="{% url 'catalog:product_update' object.pk %}">Edit</a>
+                        <!--                    <a class="btn btn-outline-secondary" onclick="history.back();">Back</a>-->
+                        <a class="btn btn-outline-secondary"
+                           href="{% url 'catalog:product_update' object.pk %}">Edit</a>
                         <a class="btn btn-outline-danger" href="{% url 'catalog:product_delete' object.pk %}">Delete</a>
                     </div>
                 </div>
                 <div class="col-6">
-                    <small class="text-body-secondary">History of versions:<br>
-                    {% for version in version_item %}
-                        {{ version.num|floatformat:"2u" }}
-                        {% if version.is_active %}
-                            (active version)
-                        {% endif %}
-                        <br>
-                    {% endfor %}
-                    </small>
+                    <strong class="text-body-secondary">History of versions:</strong>
+                    <small class="text-body-secondary">
+                        {% for version in version_item %}
+                            <br>
+                            {{ version.num|floatformat:"2u" }}
+                            {% if version.is_active %}
+                                (active version)
+                            {% endif %}
+                        {% endfor %}
+                    </small><br>
                     <div class="btn-group py-3">
-                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'catalog:product_update' object.pk %}">Edit</a>
-                        <a class="btn btn-sm btn-outline-danger" href="{% url 'catalog:product_delete' object.pk %}">Delete</a>
+                        <a class="btn btn-sm btn-outline-secondary" href="{% url 'catalog:version_list' object.pk %}">
+                            Manage versions</a>
                     </div>
                 </div>
             </div>
