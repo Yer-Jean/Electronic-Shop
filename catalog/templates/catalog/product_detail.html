@@ -7,7 +7,7 @@
             <img src="{{ object.image|mediapath }}" class="p-4 img-fluid"
                  width="400px" height="auto" alt="Responsive image">
 
-            <h2 class="display-6">${{ object.price }}</h2>
+            <h2 class="display-6">${{ object.price }}</h2><br>
             <p class="col-md-10 fs-4 mb-5">{{ object.description|linebreaksbr }}</p>
 
             <div class="d-flex justify-content-between align-items-top">
@@ -20,7 +20,7 @@
                     </div>
                 </div>
                 <div class="col-6">
-                    <strong class="text-body-secondary">History of versions:</strong>
+                    <strong class="text-body-secondary">Versions history:</strong>
                     <small class="text-body-secondary">
                         {% for version in version_item %}
                             <br>
