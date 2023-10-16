@@ -18,7 +18,8 @@ class StyleFormMixin:
 class ProductForm(StyleFormMixin, forms.ModelForm):
     class Meta:
         model = Product
-        fields = '__all__'
+        # fields = '__all__'
+        exclude = ('created_by',)
 
     def clean(self):
         cleaned_data = super().clean()
