@@ -1,10 +1,10 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
 from pytils.translit import slugify
 
 from blog.models import Article
-from blog.services import send_greeting_email
+from utils.utils import send_greeting_email
 
 
 class ArticleListView(ListView):
