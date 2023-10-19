@@ -1,3 +1,4 @@
+from django import forms
 from django.shortcuts import get_object_or_404
 from django.urls import reverse_lazy, reverse
 from django.views.generic import ListView, DetailView, CreateView, DeleteView, UpdateView
@@ -63,13 +64,33 @@ class ArticleCreateView(CreateView):
         return super().form_valid(form)
 
 
+class CanPublishArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ['title', 'content', 'image', 'is_published']
+
+
+class CanNotPublishArticleForm(forms.ModelForm):
+    class Meta:
+        model = Article
+        fields = ['title', 'content', 'image']
+
+
 class ArticleUpdateView(UpdateView):
     model = Article
-    fields = ('title', 'content', 'image', 'is_published')
     extra_context = {
         'title': 'Dream shop - Blog',
         'sub_title': 'Edit article'
     }
+
+    def get_form_class(self):
+        """Метод проверяет права пользователя. Если ему разрешено публиковать статьи,
+        то выводим форму редактирования, включающую флажок Is_Published, иначе - флажок отсутствует.
+        Но у пользователя в обоих случаях остается возможность редактировать статью"""
+        if self.request.user.has_perm('blog.set_published_status'):
+            return CanPublishArticleForm
+        else:
+            return CanNotPublishArticleForm
 
     def get_success_url(self):
         return reverse('blog:article', args=[self.kwargs.get('pk')])

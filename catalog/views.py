@@ -1,4 +1,5 @@
 from django.forms import inlineformset_factory
+from django.http import Http404
 from django.shortcuts import render
 from django.urls import reverse, reverse_lazy
 from django.views.generic import ListView, DetailView, TemplateView, CreateView, UpdateView, DeleteView
@@ -36,6 +37,8 @@ class ProductListView(ListView):
     def get_queryset(self):
         queryset = super().get_queryset()
         queryset = queryset.filter(category_id=self.kwargs.get('pk'))
+        if not self.request.user.is_staff:
+            queryset = queryset.filter(created_by=self.request.user)
         return queryset
 
     # Переопределяем экстра-контекст, так как у нас подставляются динамические данные
@@ -87,6 +90,15 @@ class ProductCreateView(CreateView):
 class ProductUpdateView(UpdateView):
     model = Product
     form_class = ProductForm
+
+    def get_object(self, queryset=None):
+        self.object = super().get_object(queryset)
+
+        # Разрешаем редактировать продукт только его создателю.
+        if self.object.created_by != self.request.user and not self.request.user.is_staff:
+            raise Http404
+
+        return self.object
 
     def get_success_url(self):
         return reverse('catalog:product', args=[self.object.pk])
