@@ -9,7 +9,7 @@ class Article(models.Model):
     slug = models.CharField(max_length=200, verbose_name='Слог')
     image = models.ImageField(upload_to='blog/', verbose_name='Изображение', **NULLABLE)
     created_at = models.DateField(auto_now_add=True, verbose_name='Дата создания')
-    is_published = models.BooleanField(default=True, verbose_name='Опубликовано')
+    is_published = models.BooleanField(default=False, verbose_name='Опубликовано')
     views_count = models.IntegerField(default=0, verbose_name='Просмотры')
 
     def __str__(self):
@@ -22,3 +22,4 @@ class Article(models.Model):
         verbose_name = 'статья'
         verbose_name_plural = 'статьи'
         ordering = ('-created_at',)
+        permissions = [('set_published_status', 'Can publish article')]
