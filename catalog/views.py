@@ -6,6 +6,7 @@ from django.views.generic import ListView, DetailView, TemplateView, CreateView,
 
 from catalog.forms import ProductForm, VersionForm
 from catalog.models import Product, Category, Version
+from catalog.services import get_categories_cache
 from utils.json_saver import write_to_json_file
 
 
@@ -30,6 +31,10 @@ class CategoryListView(ListView):
         'sub_title': ''
     }
 
+    def get_context_data(self, **kwargs):
+        context_data = super().get_context_data(**kwargs)
+        context_data['object_list'] = get_categories_cache()
+        return context_data
 
 class ProductListView(ListView):
     model = Product
